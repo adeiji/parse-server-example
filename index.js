@@ -23,7 +23,7 @@ var api = new ParseServer({
   emailAdapter: {
     module: 'parse-server-simple-mailgun-adapter',
     options: {
-    fromAddress: process.env.EMAIL_FROM || "sandbox78ae0ed0f5b34d43bedffc6e30b1ac62.mailgun.org",
+    fromAddress: process.env.EMAIL_FROM || "Mailgun Sandbox <postmaster@sandbox78ae0ed0f5b34d43bedffc6e30b1ac62.mailgun.org>",
     domain: process.env.MAILGUN_DOMAIN || "mailgun.org",
     apiKey: process.env.MAILGUN_API_KEY || "key-0cd8ecc82f2cd6bc062287ced4ad5a98",
     // Verification email subject
@@ -36,7 +36,9 @@ var api = new ParseServer({
     // Password reset email body
     passwordResetBody: 'Hi,\n\nYou requested a password reset for %appname%.\n\nClick here to reset it:\n%link%',
     //OPTIONAL (will send HTML version of email):
-    passwordResetBodyHTML: "<!--DOCTYPE html>........"
+    passwordResetBodyHTML: "<!--DOCTYPE html>........",
+    verifyUserEmails: true,
+    emailVerifyTokenValidityDuration: 2 * 60 * 60
     }
  }
 });
